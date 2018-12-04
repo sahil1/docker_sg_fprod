@@ -9,15 +9,15 @@ script:
     - docker run m_sahil/fibinacci_prod npm test -- --coverage
 
 after_success:
-    - docker build -t m_sahil/multi-client -f ./client
-    - docker build -t m_sahil/multi-nginx -f ./nginx
-    - docker build -t m_sahil/multi-server -f ./server
-    - docker build -t m_sahil/multi-worker -f ./worker
+    - docker build -t sahil1/multi-client -f ./client
+    - docker build -t sahil1/multi-nginx -f ./nginx
+    - docker build -t sahil1/multi-server -f ./server
+    - docker build -t sahil1/multi-worker -f ./worker
 
     # Login to docker-cli
     - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
     # Take those images and push them to docker hub
-    - docker push m_sahil/multi-client
-    - docker push m_sahil/multi-nginx
-    - docker push m_sahil/multi-server
-    - docker push m_sahil/multi-worker
+    - docker push sahil1/multi-client
+    - docker push sahil1/multi-nginx
+    - docker push sahil1/multi-server
+    - docker push sahil1/multi-worker
